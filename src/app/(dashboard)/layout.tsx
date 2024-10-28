@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Menu from "@/components/Menu";
 import Navbar from "@/components/Navbar";
-import AdminPage from "./admin/page";
-import CountCharts from "@/components/CountCharts";
+
+
 
 export default function DashboardLayout({
     children,
@@ -13,18 +13,18 @@ export default function DashboardLayout({
     return (
       <div className="h-screen flex"> 
       {/* LEFT */}
-      <div className="w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%]  p-4">
+      <div className="w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%]  p-4 overflow-y-hidden">
         <Link href="/" className="flex items-center justify-center lg:justify-start gap-2">
           <Image src="/logo.png" alt="logo" width={32} height={32} />
-          <span className="hidden lg:block">Schoolama</span>
+          <span className="hidden lg:block font-bold text-xs">Schoolama</span>
         </Link>
-        <Menu/>
+        <Menu />
       </div>
       
       {/* Rıght */}
-      <div className="w-[86%] md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#F7F8FA] overflow-scroll">
+      <div className="w-[86%] md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#F7F8FA] overflow-scroll flex flex-col">
         <Navbar/>
-        <AdminPage/>
+        {children}
         
       </div>
       </div>
